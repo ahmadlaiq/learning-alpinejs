@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- TailWindCSS cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AlpineJS cdn -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <!-- x-model -->
+    <!--Berfungsi untuk menghubungkan data pada elemen input dengan data pada x-data  -->
+    <!-- x-model input -->
+    <div x-data="{name: 'Halo Laiq'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <label for="nama" class="text-sm font-medium text-gray-900 block mb-2">Masukkan Nama</label>
+        <input x-model="name"
+            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        <p x-text="name"></p>
+    </div>
+    <!-- x-model textarea -->
+    <div x-data="{name: 'Halo Laiq'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <label for="nama" class="text-sm font-medium text-gray-900 block mb-2">Masukkan Nama</label>
+        <textarea x-model="name"
+            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></textarea>
+        <p x-text="name"></p>
+    </div>
+    <!-- x-model checkbox -->
+    <div x-data="{name: 'Halo Laiq'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <label for="nama" class="text-sm font-medium text-gray-900 block mb-2">Masukkan Nama</label>
+        <input type="checkbox" x-model="name"
+            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        <p x-text="name"></p>
+    </div>
+    <!-- x-model select -->
+    <div x-data="{name: 'Halo Laiq'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <label for="nama" class="text-sm font-medium text-gray-900 block mb-2">Masukkan Nama</label>
+        <select x-model="name"
+            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            <option value="Halo Laiq">Halo Laiq</option>
+            <option value="Halo Ahmad">Halo Ahmad</option>
+        </select>
+        <p x-text="name"></p>
+    </div>
+</body>
+
+</html>

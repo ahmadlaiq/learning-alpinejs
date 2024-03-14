@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- TailWindCSS cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AlpineJS cdn -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    
+    <!-- @click -->
+    <div x-data="{pesan: 'Halo Laiq!'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <button @click="window.alert(pesan)" class="py-2 px-5 bg-blue-400 text-white rounded-md">Klik Saya</button>
+    </div>
+    <!-- @dblsclick -->
+    <div x-data="{pesan: 'Halo Laiq!'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <button @dblclick="window.alert(pesan)" class="py-2 px-5 bg-blue-400 text-white rounded-md">Klik Saya</button>
+    </div>
+    <!-- @mouseenter -->
+    <div x-data="{pesan: 'Halo Laiq!'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <button @mouseenter="window.alert(pesan)" class="py-2 px-5 bg-blue-400 text-white rounded-md">Klik Saya</button>
+    </div>
+    <!-- @mouseleave -->
+    <div x-data="{pesan: 'Halo Laiq!'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <button @mouseleave="window.alert(pesan)" class="py-2 px-5 bg-blue-400 text-white rounded-md">Klik Saya</button>
+    </div>
+    <!-- $event -->
+    <div x-data="{pesan: 'Halo Laiq!'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <button @click="console.log($event.target.id)" id="tombol"
+            class="py-2 px-5 bg-blue-400 text-white rounded-md">Klik Saya</button>
+    </div>
+    <!-- @keyup -->
+    <!-- Berfungsi untuk menangani event ketika tombol keyboard ditekan -->
+    <div x-data="{pesan: 'Halo Laiq!'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <label for="nama" class="text-sm font-medium text-gray-900 block mb-2">Masukkan Nama</label>
+        <input type="text" @keyup="alert('Anda menggunakan keyboard')"
+            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+    </div>
+    
+    <!-- Event Modifier -->
+    <!-- .prevent -->
+    <!-- Berfungsi untuk mencegah event default yang terjadi pada elemen tersebut  -->
+    <div x-data="{pesan: 'Halo Laiq!'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <form @submit.prevent="alert('Form tidak akan di submit')"
+            class="flex flex-col space-y-5">
+            <label for="nama" class="text-sm font-medium text-gray-900 block mb-2">Masukkan Nama</label>
+            <input type="text"
+                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            <button type="submit" class="py-2 px-5 bg-blue-400 text-white rounded-md">Submit</button>
+        </form>
+    </div>
+    <!-- .stop -->
+    <!-- Berfungsi untuk menghentikan event dari menyebar ke parent elemen  -->
+    <div x-data="{pesan: 'Halo Laiq!'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <div @click="alert('Parent')" class="bg-blue-400 p-5 rounded-md">
+            <button @click.stop="alert('Child')" class="bg-red-400 p-5 rounded-md">Klik Saya</button>
+        </div>
+    </div>
+    <!-- .outside -->
+    <!-- Berfungsi untuk menangani event ketika elemen tersebut di klik di luar elemen tersebut  -->
+    <div x-data="{pesan: 'Halo Laiq!'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <div @click.outside="alert('Anda mengklik di luar elemen')" class="bg-blue-400 p-5 rounded-md">
+            <button class="bg-red-400 p-5 rounded-md">Klik Saya</button>
+        </div>
+    </div>
+    <!-- .window -->
+    <!-- Berfungsi untuk menangani event ketika elemen tersebut di klik di luar window browser -->
+    <div x-data="{pesan: 'Halo Laiq!'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <div @click.window="alert('Anda mengklik di luar window browser')" class="bg-blue-400 p-5 rounded-md">
+            <button class="bg-red-400 p-5 rounded-md">Klik Saya</button>
+        </div>
+    </div>
+    <!-- .once -->
+    <!-- Berfungsi untuk menjalankan event hanya sekali saja -->
+    <div x-data="{pesan: 'Halo Laiq!'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <button @click.once="alert('Anda mengklik saya')" class="py-2 px-5 bg-blue-400 text-white rounded-md">Klik Saya</button>
+    </div>
+    <!-- .debounce -->
+    <!-- Berfungsi untuk menunda event yang terjadi pada elemen tersebut sekali-->
+    <div x-data="{pesan: 'Halo Laiq!'}"
+        class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+        <input type="text" @input.debounce="alert('Anda mengetik')" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+    </div>
+</body>
+
+</html>

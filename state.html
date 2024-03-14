@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1>
+    <!-- Local State -->
+    <div x-data="{name: 'Halo Laiq'}">
+        <span x-text="name"></span>
+    </div> <br>
+    <!-- Nesting State -->
+    <div x-data="{ open: false }">
+        <div x-data="{ label: 'Content:' }">
+            <span x-text="label"></span>
+            <span x-show="open"></span>
+        </div>
+    </div> <br>
+    <!-- Data Lees -->
+    <button x-data @click="alert('I\'ve been clicked!')">Click Me</button> <br>
+    <!-- Single Element Data -->
+    <button x-data="{label: 'Klik Disini'}" x-text="label"></button> <br>
+
+    <!-- Global State -->
+    <div x-data>
+        <template x-for="tab in $store.tabs.items">
+            ...
+        </template>
+    </div>
+     
+    <div x-data>
+        <button @click="$store.tabs.current = 'first'">First Tab</button>
+        <button @click="$store.tabs.current = 'second'">Second Tab</button>
+        <button @click="$store.tabs.current = 'third'">Third Tab</button>
+    </div>
+</body>
+
+<script>
+    // Global State
+    Alpine.store('tabs', {
+        current: 'first',
+
+        items: ['first', 'second', 'third'],
+    })
+</script>
+
+</html>
